@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="sante">
+      <h2 data-cy="santeDetailsHeading"><span jhiTranslate="intellcapApp.sante.detail.title">Sante</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ sante.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="intellcapApp.sante.traitementsPreventifs">Traitements Preventifs</span></dt>
+        <dd>
+          <span>{{ sante.traitementsPreventifs }}</span>
+        </dd>
+        <dt><span jhiTranslate="intellcapApp.sante.soins">Soins</span></dt>
+        <dd>
+          <span>{{ sante.soins }}</span>
+        </dd>
+        <dt><span jhiTranslate="intellcapApp.sante.vaccins">Vaccins</span></dt>
+        <dd>
+          <span>{{ sante.vaccins }}</span>
+        </dd>
+        <dt><span jhiTranslate="intellcapApp.sante.maladie">Maladie</span></dt>
+        <dd>
+          <div *ngIf="sante.maladie">
+            <a [routerLink]="['/maladie', sante.maladie.id, 'view']">{{ sante.maladie.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/sante', sante.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

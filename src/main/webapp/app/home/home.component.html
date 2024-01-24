@@ -1,0 +1,109 @@
+<div class="hipster ">
+    <img src="../../content/images/ferme.jpg" class="img" />
+    <div class="text-img center-text">
+        <p style="font-size:3vw;margin-left: 15px;margin-right: 50px;">Bienvenue sur Smart Breed Platform</p>
+    </div>
+</div>
+
+<div class="sheep-info">
+    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig" (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)" (beforeChange)="beforeChange($event)">
+        <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+            <div class="slide1">
+                <div style="float: left">
+                    <img src="../../content/images/sardi.png" style="width: 80%; height: auto; border-radius: 70%; display: inline-block" />
+                </div>
+                <div style="padding: 50px">
+                    <h2 style="font-family: Times New Roman, Times, serif">RACE SARDI</h2>
+                    <p style="text-align: justify">
+                        La race Sardi occupe une place très spéciale dans l’élevage ovin au Maroc. Notamment appréciée à l’échelle nationale, le mâle est le plus recherché par les Marocains pour la fête de l’Aïd pour ses cornes bien développés. La race Sardi réputée par son
+                        potentiel de croissance important à vocation viande, contribue dans la production totale des viandes rouges au Maroc. Son effectif a connu une augmentation ces dernières décennies et les géniteurs de cette race sont souvent utilisés
+                        en croisement.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+            <div class="slide1">
+                <div style="float: left; padding-right: 40px">
+                    <img src="../../content/images/boujaad.png" style="width: 80%; height: auto; border-radius: 70%; display: inline-block" />
+                </div>
+                <div style="padding: 50px">
+                    <h2 style="font-family: Times New Roman, Times, serif">RACE BOUJAÂD</h2>
+                    <p style="text-align: justify">
+                        La race Boujâad est considérée parmi les races de grande taille au Maroc. Elle est appelée aussi « Race jaune » en relation avec la couleur de sa tête jaune très pâle ou safran. Les animaux de cette race sont utilisés en croisement. Ils sont rustiques,
+                        de grande taille, et bien conformés à toison fermée. Son effectif est estimé à 200.000 brebis.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+            <div class="slide1">
+                <div style="float: left; padding-right: 40px">
+                    <img src="../../content/images/saghro.png" style="width: 80%; height: auto; border-radius: 70%; display: inline-block" />
+                </div>
+                <div style="padding: 50px">
+                    <h2 style="font-family: Times New Roman, Times, serif">RACE SAGHRO</h2>
+                    <p style="text-align: justify">
+                        C’est l’ovin du Haut Atlas, présent sur les montagnes du Saghro et les zones avoisinantes. C’est un animal rustique et très adapté aux conditions climatiques arides et la géographie très accidentée de la région. La race est produite sur parcours, elle
+                        capable de faire de longues déplacements à travers les étages climatiques pour chercher la nourriture. La qualité de la toison est un barrage naturel contre les agressions climatiques (pluie, froid, canicule) notamment les grandes
+                        variations de la température.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+            <div class="slide1">
+                <div style="float: left; padding-right: 40px">
+                    <img src="../../content/images/dman.png" style="width: 80%; height: auto; border-radius: 70%; display: inline-block" />
+                </div>
+                <div style="padding: 50px">
+                    <h2 style="font-family: Times New Roman, Times, serif">RACE D’MAN</h2>
+                    <p style="text-align: justify">
+                        Parmi toutes les races marocaines, la race Daman se distingue par sa forte prolificité, sa précocité sexuelle et son aptitude au dessaisonnèrent. Egalement, sa petite taille, l’absence des cornes chez le male et la variabilité de la coloration de la tête
+                        et de la robe (noire, brune, blanche ou la combinaison de ces trois couleurs) différencient la race D’man des autres races locales marocaines.Elle est conduite en stabulation permanente et toujours en petit effectif (en moyenne
+                        cinq brebis).
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+            <div class="slide1">
+                <div style="float: left; padding-right: 40px">
+                    <img src="../../content/images/timahdite.png" style="width: 80%; height: auto; border-radius: 70%; display: inline-block" />
+                </div>
+                <div style="padding: 30px">
+                    <h2 style="font-family: Times New Roman, Times, serif">RACE TIMAHDITE</h2>
+                    <p style="text-align: justify">
+                        C’est la race du Moyen Atlas et des régions avoisinantes. Elle est réputée par sa bonne conformation, sa facilité d’engraissement, son rendement en carcasse et son adaptation à son environnement. Par ailleurs, elle est très utilisée pour le croisement
+                        industriel.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </ngx-slick-carousel>
+</div>
+
+<div class="links">
+    <h2 style="color: #00620f; font-weight: bold">Liens utiles</h2>
+    <a target="_blank" href="http://www.onssa.gov.ma/">
+        <img class="img-link" src="../../content/images/onssa.png" alt="" style="margin-left: 30px" />
+    </a>
+
+    <a target="_blank" href="http://www.fiviar.ma/">
+        <img class="img-link" src="../../content/images/fiviar.png" alt="" />
+    </a>
+
+    <a target="_blank" href="http://www.onca.gov.ma/">
+        <img class="img-link" src="../../content/images/onca.jpg" alt="" />
+    </a>
+
+    <a target="_blank" href="http://www.agriculture.gov.ma/">
+        <img class="img-link" src="../../content/images/agri.jpg" alt="" />
+    </a>
+
+    <a target="_blank" href="https://www.anoc.ma/">
+        <img class="img-link" src="../../content/images/anoc.jpg" alt="" />
+    </a>
+</div>

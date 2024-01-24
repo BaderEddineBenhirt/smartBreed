@@ -1,0 +1,63 @@
+/* ==========================================================================
+Main page styles
+========================================================================== */
+
+.hipster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+}
+
+.hipster {
+    position: relative;
+}
+
+.hipster p {
+    position: absolute;
+    top: 1em;
+    left: 3em;
+    font-family: 'Times New Roman';
+    
+
+}
+
+
+.sheep-info {
+    position: relative;
+    margin-top: 60px;
+}
+
+// .sheep-info img{
+//   width: 300px;
+//   height: 300px;
+//   border-radius: 70%;
+//   display:inline-block;
+// }
+.slide {
+    padding-right: 50px;
+    padding-left: 50px;
+    padding-top: 20px;
+}
+
+.carousel {
+    padding-right: 50px;
+}
+
+.slick-prev:before,
+.slick-next:before {
+    color: black !important;
+}
+
+.links {
+    padding-top: 100px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.img-link {
+    display: inline-block;
+    height: auto;
+    width: 15%;
+    margin: right 10%;
+}

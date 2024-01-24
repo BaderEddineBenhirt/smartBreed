@@ -1,0 +1,38 @@
+{
+  "applications": "*",
+  "changelogDate": "20220929184525",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "maladie",
+  "fields": [
+    {
+      "fieldName": "nomMaladie",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "symptomes",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Maladie",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "sante",
+      "otherEntityRelationshipName": "maladie",
+      "relationshipName": "sante",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "animal",
+      "otherEntityRelationshipName": "maladie",
+      "ownerSide": false,
+      "relationshipName": "animal",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}

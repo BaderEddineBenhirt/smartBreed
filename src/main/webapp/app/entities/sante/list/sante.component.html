@@ -1,0 +1,98 @@
+<div>
+    <h2 id="page-heading" data-cy="SanteHeading">
+        <span jhiTranslate="intellcapApp.sante.home.title">Santes</span>
+        <hr>
+        <div class="d-flex justify-content-end">
+            <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="intellcapApp.sante.home.refreshListLabel">Actualiser la liste</span>
+      </button>
+
+            <button id="jh-create-entity" data-cy="entityCreateButton" class="btn btn-primary jh-create-entity create-sante" [routerLink]="['/sante/new']">
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="intellcapApp.sante.home.createLabel"> Créer un nouveau Sante </span>
+      </button>
+        </div>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="santes?.length === 0">
+        <span jhiTranslate="intellcapApp.sante.home.notFound">Aucun Sante trouvé</span>
+    </div>
+
+    <div class="table-responsive table-entities" id="entities" *ngIf="santes && santes.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+                    <th scope="col" jhiSortBy="id">
+                        <div class="d-flex">
+                            <span jhiTranslate="global.field.id">ID</span>
+                            <fa-icon class="p-1" icon="sort"></fa-icon>
+                        </div>
+                    </th>
+                    <th scope="col" jhiSortBy="traitementsPreventifs">
+                        <div class="d-flex">
+                            <span jhiTranslate="intellcapApp.sante.traitementsPreventifs">Traitements Preventifs</span>
+                            <fa-icon class="p-1" icon="sort"></fa-icon>
+                        </div>
+                    </th>
+                    <th scope="col" jhiSortBy="soins">
+                        <div class="d-flex">
+                            <span jhiTranslate="intellcapApp.sante.soins">Soins</span>
+                            <fa-icon class="p-1" icon="sort"></fa-icon>
+                        </div>
+                    </th>
+                    <th scope="col" jhiSortBy="vaccins">
+                        <div class="d-flex">
+                            <span jhiTranslate="intellcapApp.sante.vaccins">Vaccins</span>
+                            <fa-icon class="p-1" icon="sort"></fa-icon>
+                        </div>
+                    </th>
+                    <th scope="col" jhiSortBy="maladie.id">
+                        <div class="d-flex">
+                            <span jhiTranslate="intellcapApp.sante.maladie">Maladie</span>
+                            <fa-icon class="p-1" icon="sort"></fa-icon>
+                        </div>
+                    </th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let sante of santes; trackBy: trackId" data-cy="entityTable">
+                    <td>
+                        <a [routerLink]="['/sante', sante.id, 'view']">{{ sante.id }}</a>
+                    </td>
+                    <td>{{ sante.traitementsPreventifs }}</td>
+                    <td>{{ sante.soins }}</td>
+                    <td>{{ sante.vaccins }}</td>
+                    <td>
+                        <div *ngIf="sante.maladie">
+                            <a [routerLink]="['/maladie', sante.maladie.id, 'view']">{{ sante.maladie.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-end">
+                        <div class="btn-group">
+                            <button type="submit" [routerLink]="['/sante', sante.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
+              </button>
+
+                            <button type="submit" [routerLink]="['/sante', sante.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
+              </button>
+
+                            <button type="submit" (click)="delete(sante)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
+              </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

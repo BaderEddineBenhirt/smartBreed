@@ -1,0 +1,48 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="genetique">
+      <h2 data-cy="genetiqueDetailsHeading"><span jhiTranslate="intellcapApp.genetique.detail.title">Genetique</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ genetique.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="intellcapApp.genetique.couleur">Couleur</span></dt>
+        <dd>
+          <span>{{ genetique.couleur }}</span>
+        </dd>
+        <dt><span jhiTranslate="intellcapApp.genetique.taille">Taille</span></dt>
+        <dd>
+          <span>{{ genetique.taille }}</span>
+        </dd>
+        <dt><span jhiTranslate="intellcapApp.genetique.aptitudesLaitiere">Aptitudes Laitiere</span></dt>
+        <dd>
+          <span>{{ genetique.aptitudesLaitiere }}</span>
+        </dd>
+        <dt><span jhiTranslate="intellcapApp.genetique.aptitudesBoucheres">Aptitudes Boucheres</span></dt>
+        <dd>
+          <span>{{ genetique.aptitudesBoucheres }}</span>
+        </dd>
+        <dt><span jhiTranslate="intellcapApp.genetique.aptitudesMaternelles">Aptitudes Maternelles</span></dt>
+        <dd>
+          <span>{{ genetique.aptitudesMaternelles }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/genetique', genetique.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

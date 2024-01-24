@@ -1,0 +1,104 @@
+<div class="d-flex justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-animal-heading" data-cy="AnimalCreateUpdateHeading" jhiTranslate="intellcapApp.animal.home.createOrEditLabel">
+                Créer ou éditer un Animal
+            </h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+                    <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+                    <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+                </div>
+
+                <div class="row mb-3">
+                    <label class="form-label" jhiTranslate="intellcapApp.animal.ref" for="field_ref">Ref</label>
+                    <input type="text" class="form-control" name="ref" id="field_ref" data-cy="ref" formControlName="ref" />
+                </div>
+
+                <div class="row mb-3">
+                    <label class="form-label" jhiTranslate="intellcapApp.animal.age" for="field_age">Age</label>
+                    <div class="input-group">
+                        <input id="field_age" data-cy="age" type="text" class="form-control" name="age" ngbDatepicker #ageDp="ngbDatepicker" formControlName="age" />
+                        <button type="button" class="btn btn-secondary" (click)="ageDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="form-label" jhiTranslate="intellcapApp.animal.genre" for="field_genre">Genre</label>
+                    <input type="text" class="form-control" name="genre" id="field_genre" data-cy="genre" formControlName="genre" />
+                </div>
+
+                <div class="row mb-3">
+                    <label class="form-label" jhiTranslate="intellcapApp.animal.poids" for="field_poids">Poids</label>
+                    <input type="number" class="form-control" name="poids" id="field_poids" data-cy="poids" formControlName="poids" />
+                </div>
+
+                <div class="row mb-3">
+                    <label class="form-label" jhiTranslate="intellcapApp.animal.refMere" for="field_refMere">Ref Mere</label>
+                    <input type="text" class="form-control" name="refMere" id="field_refMere" data-cy="refMere" formControlName="refMere" />
+                </div>
+
+                <div class="row mb-3">
+                    <label class="form-label" jhiTranslate="intellcapApp.animal.refPere" for="field_refPere">Ref Pere</label>
+                    <input type="text" class="form-control" name="refPere" id="field_refPere" data-cy="refPere" formControlName="refPere" />
+                </div>
+
+                <div class="row mb-3">
+                    <label class="form-label" jhiTranslate="intellcapApp.animal.type" for="field_type">Type</label>
+                    <input type="number" class="form-control" name="type" id="field_type" data-cy="type" formControlName="type" />
+                </div>
+
+                <div class="row mb-3">
+                    <label class="form-label" jhiTranslate="intellcapApp.animal.race" for="field_race">Race</label>
+                    <input type="text" class="form-control" name="race" id="field_race" data-cy="race" formControlName="race" />
+                </div>
+
+                <div class="row mb-3">
+                    <label class="form-label" jhiTranslate="intellcapApp.animal.genetique" for="field_genetique">Genetique</label>
+                    <select class="form-control" id="field_genetique" data-cy="genetique" name="genetique" formControlName="genetique" [compareWith]="compareGenetique">
+            <option [ngValue]="null"></option>
+            <option [ngValue]="genetiqueOption" *ngFor="let genetiqueOption of genetiquesCollection">{{ genetiqueOption.id }}</option>
+          </select>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="form-label" jhiTranslate="intellcapApp.animal.conditionsDeVie" for="field_conditionsDeVie">Conditions De Vie</label>
+                    <select class="form-control" id="field_conditionsDeVie" data-cy="conditionsDeVie" name="conditionsDeVie" formControlName="conditionsDeVie" [compareWith]="compareConditionsDeVie">
+            <option [ngValue]="null"></option>
+            <option [ngValue]="conditionsDeVieOption" *ngFor="let conditionsDeVieOption of conditionsDeViesSharedCollection">
+              {{ conditionsDeVieOption.id }}
+            </option>
+          </select>
+                </div>
+
+                <div class="row mb-3">
+                    <label jhiTranslate="intellcapApp.animal.maladie" for="field_maladies">Maladie</label>
+                    <select class="form-control" id="field_maladies" data-cy="maladie" multiple name="maladies" formControlName="maladies" [compareWith]="compareMaladie">
+            <option [ngValue]="maladieOption" *ngFor="let maladieOption of maladiesSharedCollection">{{ maladieOption.id }}</option>
+          </select>
+                </div>
+
+                <div class="row mb-3" [hidden]="editable===false">
+                    <label class="form-label" jhiTranslate="intellcapApp.animal.ferme" for="field_ferme">Ferme</label>
+                    <select class="form-control" id="field_ferme" data-cy="ferme" name="ferme" formControlName="ferme" [compareWith]="compareFerme">
+            <option [ngValue]="null"></option>
+            <option [ngValue]="fermeOption" *ngFor="let fermeOption of fermesSharedCollection">{{ fermeOption.id }}</option>
+          </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Annuler</span>
+        </button>
+
+                <button type="submit" id="save-entity" data-cy="entityCreateSaveButton" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Sauvegarder</span>
+        </button>
+            </div>
+        </form>
+    </div>
+</div>

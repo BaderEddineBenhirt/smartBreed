@@ -1,0 +1,116 @@
+<div>
+    <h2 id="page-heading" data-cy="SuiviHeading">
+        <span jhiTranslate="intellcapApp.suivi.home.title">Suivis</span>
+<hr>
+        <div class="d-flex justify-content-end">
+           
+
+            <button id="jh-create-entity" data-cy="entityCreateButton" class="btn btn-primary jh-create-entity create-suivi" [routerLink]="['/suivi/new']">
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="intellcapApp.suivi.home.createLabel"> Créer un nouveau Suivi </span>
+      </button>
+        </div>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="suivis?.length === 0">
+        <span jhiTranslate="intellcapApp.suivi.home.notFound">Aucun Suivi trouvé</span>
+    </div>
+
+    <div class="table-responsive table-entities" id="entities" *ngIf="suivis && suivis.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+                    <th scope="col" jhiSortBy="id">
+                        <div class="d-flex">
+                            <span jhiTranslate="global.field.id">ID</span>
+                            <fa-icon class="p-1" icon="sort"></fa-icon>
+                        </div>
+                    </th>
+                    <th scope="col" jhiSortBy="poids0">
+                        <div class="d-flex">
+                            <span jhiTranslate="intellcapApp.suivi.poids0">Poids 0</span>
+                            <fa-icon class="p-1" icon="sort"></fa-icon>
+                        </div>
+                    </th>
+                    <th scope="col" jhiSortBy="poids30">
+                        <div class="d-flex">
+                            <span jhiTranslate="intellcapApp.suivi.poids30">Poids 30</span>
+                            <fa-icon class="p-1" icon="sort"></fa-icon>
+                        </div>
+                    </th>
+                    <th scope="col" jhiSortBy="poids90">
+                        <div class="d-flex">
+                            <span jhiTranslate="intellcapApp.suivi.poids90">Poids 90</span>
+                            <fa-icon class="p-1" icon="sort"></fa-icon>
+                        </div>
+                    </th>
+                    <th scope="col" jhiSortBy="gmq30">
+                        <div class="d-flex">
+                            <span jhiTranslate="intellcapApp.suivi.gmq30">Gmq 30</span>
+                            <fa-icon class="p-1" icon="sort"></fa-icon>
+                        </div>
+                    </th>
+                    <th scope="col" jhiSortBy="gmq3070">
+                        <div class="d-flex">
+                            <span jhiTranslate="intellcapApp.suivi.gmq3070">Gmq 3070</span>
+                            <fa-icon class="p-1" icon="sort"></fa-icon>
+                        </div>
+                    </th>
+                    <th scope="col" jhiSortBy="changeDents">
+                        <div class="d-flex">
+                            <span jhiTranslate="intellcapApp.suivi.changeDents">Change Dents</span>
+                            <fa-icon class="p-1" icon="sort"></fa-icon>
+                        </div>
+                    </th>
+                    <th scope="col" jhiSortBy="animal.id">
+                        <div class="d-flex">
+                            <span jhiTranslate="intellcapApp.suivi.animal">Animal</span>
+                            <fa-icon class="p-1" icon="sort"></fa-icon>
+                        </div>
+                    </th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let suivi of suivis; trackBy: trackId" data-cy="entityTable">
+                    <td>
+                        <a [routerLink]="['/suivi', suivi.id, 'view']">{{ suivi.id }}</a>
+                    </td>
+                    <td>{{ suivi.poids0 }}</td>
+                    <td>{{ suivi.poids30 }}</td>
+                    <td>{{ suivi.poids90 }}</td>
+                    <td>{{ suivi.gmq30 }}</td>
+                    <td>{{ suivi.gmq3070 }}</td>
+                    <td>{{ suivi.changeDents }}</td>
+                    <td>
+                        <div *ngIf="suivi.animal">
+                            <a [routerLink]="['/animal', suivi.animal.id, 'view']">{{ suivi.animal.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-end">
+                        <div class="btn-group">
+                            <button type="submit" [routerLink]="['/suivi', suivi.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
+              </button>
+
+                            <button type="submit" [routerLink]="['/suivi', suivi.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
+              </button>
+
+                            <button type="submit" (click)="delete(suivi)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
+              </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

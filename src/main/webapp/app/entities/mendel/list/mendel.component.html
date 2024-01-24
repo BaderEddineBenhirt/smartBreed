@@ -1,0 +1,36 @@
+<div class="container">
+    <form method="Post" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <mat-label> <strong> <h6>Male:</h6></strong></mat-label>
+            <mat-select class="mat-select-panel" [(value)]="selectedValueMale" multiple>
+                <mat-option>None</mat-option>
+                <mat-optgroup label="Moutons" ngModule>
+                    <mat-option value="S">S</mat-option>
+                    <mat-option value="s">s</mat-option>
+                    <mat-option value="D">D</mat-option>
+                    <mat-option value="d">d</mat-option>
+                    <mat-option value="A">A</mat-option>
+                    <mat-option value="a">a</mat-option>
+                </mat-optgroup>
+            </mat-select>
+
+            <mat-label>
+                <p><strong> <h6>Female:</h6> </strong></p>
+
+            </mat-label>
+            <mat-select class="mat-select-panel" [(value)]="selectedValueFemale" multiple>
+                <mat-option>None</mat-option>
+                <mat-optgroup label="Brebis" ngModule>
+                    <mat-option value="S">S</mat-option>
+                    <mat-option value="s">s</mat-option>
+                    <mat-option value="D">D</mat-option>
+                    <mat-option value="d">d</mat-option>
+                    <mat-option value="A">A</mat-option>
+                    <mat-option value="a">a</mat-option>
+                </mat-optgroup>
+            </mat-select>
+
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+    </form>
+</div>

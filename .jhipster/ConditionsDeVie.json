@@ -1,0 +1,43 @@
+{
+  "applications": "*",
+  "changelogDate": "20220929184524",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "conditions_de_vie",
+  "fields": [
+    {
+      "fieldName": "ageMin",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "ageMax",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "temperature",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "vitesseAir",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "sol",
+      "fieldType": "Integer"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ConditionsDeVie",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "animal",
+      "otherEntityRelationshipName": "conditionsDeVie",
+      "relationshipName": "animal",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

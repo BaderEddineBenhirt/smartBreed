@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity Animal.
+    -->
+    <changeSet id="20220929184519-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="genetique_id"
+                                 baseTableName="animal"
+                                 constraintName="fk_animal__genetique_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="genetique"/>
+
+        <addForeignKeyConstraint baseColumnNames="conditions_de_vie_id"
+                                 baseTableName="animal"
+                                 constraintName="fk_animal__conditions_de_vie_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="conditions_de_vie"/>
+
+        <addForeignKeyConstraint baseColumnNames="animal_id"
+                                 baseTableName="rel_animal__maladie"
+                                 constraintName="fk_rel_animal__maladie__animal_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="animal"/>
+
+        <addForeignKeyConstraint baseColumnNames="maladie_id"
+                                 baseTableName="rel_animal__maladie"
+                                 constraintName="fk_rel_animal__maladie__maladie_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="maladie"/>
+
+        <addForeignKeyConstraint baseColumnNames="ferme_id"
+                                 baseTableName="animal"
+                                 constraintName="fk_animal__ferme_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ferme"/>
+    </changeSet>
+</databaseChangeLog>

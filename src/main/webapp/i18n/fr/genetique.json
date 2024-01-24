@@ -1,0 +1,29 @@
+{
+  "intellcapApp": {
+    "genetique": {
+      "home": {
+        "title": "Genetiques",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Genetique",
+        "createOrEditLabel": "Créer ou éditer un Genetique",
+        "notFound": "Aucun Genetique trouvé"
+      },
+      "created": "Un nouveau Genetique a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Genetique avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Genetique avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Genetique {{ id }} ?"
+      },
+      "detail": {
+        "title": "Genetique"
+      },
+      "id": "ID",
+      "couleur": "Couleur",
+      "taille": "Taille",
+      "aptitudesLaitiere": "Aptitudes Laitiere",
+      "aptitudesBoucheres": "Aptitudes Boucheres",
+      "aptitudesMaternelles": "Aptitudes Maternelles",
+      "animal": "Animal"
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "applications": "*",
+  "changelogDate": "20220929184521",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "nutrition",
+  "fields": [
+    {
+      "fieldName": "melasse",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "paile",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "tourteauTournesol",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "bettraveSucriere",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "cmv",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "ageMin",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "ageMax",
+      "fieldType": "Integer"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Nutrition",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "animal",
+      "otherEntityRelationshipName": "nutrition",
+      "relationshipName": "animal",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

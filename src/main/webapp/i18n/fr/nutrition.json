@@ -1,0 +1,31 @@
+{
+  "intellcapApp": {
+    "nutrition": {
+      "home": {
+        "title": "Nutritions",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Nutrition",
+        "createOrEditLabel": "Créer ou éditer un Nutrition",
+        "notFound": "Aucun Nutrition trouvé"
+      },
+      "created": "Un nouveau Nutrition a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Nutrition avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Nutrition avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Nutrition {{ id }} ?"
+      },
+      "detail": {
+        "title": "Nutrition"
+      },
+      "id": "ID",
+      "melasse": "Melasse",
+      "paile": "Paile",
+      "tourteauTournesol": "Tourteau Tournesol",
+      "bettraveSucriere": "Bettrave Sucriere",
+      "cmv": "Cmv",
+      "ageMin": "Age Min",
+      "ageMax": "Age Max",
+      "animal": "Animal"
+    }
+  }
+}

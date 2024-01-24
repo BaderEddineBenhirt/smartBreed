@@ -1,0 +1,29 @@
+{
+  "intellcapApp": {
+    "conditionsDeVie": {
+      "home": {
+        "title": "ConditionsDeVies",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Conditions De Vie",
+        "createOrEditLabel": "Créer ou éditer un Conditions De Vie",
+        "notFound": "Aucun Conditions De Vie trouvé"
+      },
+      "created": "Un nouveau Conditions De Vie a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Conditions De Vie avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Conditions De Vie avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Conditions De Vie {{ id }} ?"
+      },
+      "detail": {
+        "title": "Conditions De Vie"
+      },
+      "id": "ID",
+      "ageMin": "Age Min",
+      "ageMax": "Age Max",
+      "temperature": "Temperature",
+      "vitesseAir": "Vitesse Air",
+      "sol": "Sol",
+      "animal": "Animal"
+    }
+  }
+}

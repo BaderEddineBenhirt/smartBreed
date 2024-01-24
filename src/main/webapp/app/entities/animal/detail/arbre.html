@@ -1,0 +1,19 @@
+<div class="card text-center">
+
+    <div class="card-header" style="width: 100% ; height:100%;">
+        <h3> <strong>IntellCap</strong> </h3>
+    </div>
+    <div class="card-body">
+        <img src="../../../../content/images/le-mouton.png" width="40px">
+        <h5 class="card-title">Parents de Votre brebis/mouton</h5>
+        <p class="card-text"><strong>M  amans:</strong> </p>
+        <p class="text-success">{{ data.mere }} </p>
+        <p class="card-text"><strong>Papas   :</strong> </p>
+        <p class="text-info">{{ data.pere }}</p>
+
+        <a (click)="closeDialog()" class="btn btn-primary">Close</a>
+    </div>
+    <div class="card-footer text-muted">
+        <strong>Have a good day !! ^^</strong>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="nutrition">
+      <h2 data-cy="nutritionDetailsHeading"><span jhiTranslate="intellcapApp.nutrition.detail.title">Nutrition</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ nutrition.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="intellcapApp.nutrition.melasse">Melasse</span></dt>
+        <dd>
+          <span>{{ nutrition.melasse }}</span>
+        </dd>
+        <dt><span jhiTranslate="intellcapApp.nutrition.paile">Paile</span></dt>
+        <dd>
+          <span>{{ nutrition.paile }}</span>
+        </dd>
+        <dt><span jhiTranslate="intellcapApp.nutrition.tourteauTournesol">Tourteau Tournesol</span></dt>
+        <dd>
+          <span>{{ nutrition.tourteauTournesol }}</span>
+        </dd>
+        <dt><span jhiTranslate="intellcapApp.nutrition.bettraveSucriere">Bettrave Sucriere</span></dt>
+        <dd>
+          <span>{{ nutrition.bettraveSucriere }}</span>
+        </dd>
+        <dt><span jhiTranslate="intellcapApp.nutrition.cmv">Cmv</span></dt>
+        <dd>
+          <span>{{ nutrition.cmv }}</span>
+        </dd>
+        <dt><span jhiTranslate="intellcapApp.nutrition.ageMin">Age Min</span></dt>
+        <dd>
+          <span>{{ nutrition.ageMin }}</span>
+        </dd>
+        <dt><span jhiTranslate="intellcapApp.nutrition.ageMax">Age Max</span></dt>
+        <dd>
+          <span>{{ nutrition.ageMax }}</span>
+        </dd>
+        <dt><span jhiTranslate="intellcapApp.nutrition.animal">Animal</span></dt>
+        <dd>
+          <div *ngIf="nutrition.animal">
+            <a [routerLink]="['/animal', nutrition.animal.id, 'view']">{{ nutrition.animal.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/nutrition', nutrition.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

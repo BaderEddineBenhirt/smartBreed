@@ -1,0 +1,73 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-sante-heading" data-cy="SanteCreateUpdateHeading" jhiTranslate="intellcapApp.sante.home.createOrEditLabel">
+        Créer ou éditer un Sante
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="intellcapApp.sante.traitementsPreventifs" for="field_traitementsPreventifs"
+            >Traitements Preventifs</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="traitementsPreventifs"
+            id="field_traitementsPreventifs"
+            data-cy="traitementsPreventifs"
+            formControlName="traitementsPreventifs"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="intellcapApp.sante.soins" for="field_soins">Soins</label>
+          <input type="text" class="form-control" name="soins" id="field_soins" data-cy="soins" formControlName="soins" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="intellcapApp.sante.vaccins" for="field_vaccins">Vaccins</label>
+          <input type="text" class="form-control" name="vaccins" id="field_vaccins" data-cy="vaccins" formControlName="vaccins" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="intellcapApp.sante.maladie" for="field_maladie">Maladie</label>
+          <select
+            class="form-control"
+            id="field_maladie"
+            data-cy="maladie"
+            name="maladie"
+            formControlName="maladie"
+            [compareWith]="compareMaladie"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="maladieOption" *ngFor="let maladieOption of maladiesSharedCollection">{{ maladieOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Annuler</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Sauvegarder</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

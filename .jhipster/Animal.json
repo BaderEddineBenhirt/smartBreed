@@ -1,0 +1,81 @@
+{
+  "applications": "*",
+  "changelogDate": "20220929184519",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "animal",
+  "fields": [
+    {
+      "fieldName": "ref",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "age",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "genre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "poids",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "refMere",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "refPere",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "race",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Animal",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "genetique",
+      "otherEntityRelationshipName": "animal",
+      "ownerSide": true,
+      "relationshipName": "genetique",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "nutrition",
+      "otherEntityRelationshipName": "animal",
+      "relationshipName": "nutrition",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "conditionsDeVie",
+      "otherEntityRelationshipName": "animal",
+      "relationshipName": "conditionsDeVie",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "maladie",
+      "otherEntityRelationshipName": "animal",
+      "ownerSide": true,
+      "relationshipName": "maladie",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "ferme",
+      "otherEntityRelationshipName": "animal",
+      "relationshipName": "ferme",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

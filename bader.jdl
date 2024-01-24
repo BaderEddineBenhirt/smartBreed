@@ -1,0 +1,92 @@
+entity Animal {
+	ref String,
+    age LocalDate,
+    genre String,
+    poids Double,
+    refMere String,
+    refPere String,
+    type Integer,
+    race String
+}
+
+entity Suivi{
+    poids0 Integer,
+    poids30 Integer,
+    poids90 Integer,
+    gmq30 Integer,
+    gmq3070 Integer,
+    changeDents Integer
+}
+
+entity Nutrition {
+    melasse Integer,
+    paile Integer,
+    tourteauTournesol Integer,
+    bettraveSucriere Integer
+    cmv Integer,
+    ageMin Integer,
+    ageMax Integer
+}
+
+entity Genetique {
+    couleur String,
+    taille Integer,
+    aptitudesLaitiere Integer,
+    aptitudesBoucheres Integer,
+    aptitudesMaternelles Integer
+}
+
+entity Sante {
+    traitementsPreventifs String,
+    soins String,
+    vaccins String
+}
+
+entity ConditionsDeVie {
+	ageMin Integer,
+    ageMax Integer,
+    temperature Integer,
+    vitesseAir Integer,
+    sol Integer
+}
+
+entity Maladie {
+	nomMaladie String,
+	symptomes String
+}
+
+entity Ferme{
+	adresse String,
+    taille Integer
+}
+
+
+relationship ManyToOne {
+	Suivi{animal} to Animal
+}
+
+relationship OneToOne {
+	Animal{genetique} to Genetique{animal}
+}
+
+relationship OneToMany {
+	Maladie to Sante{maladie}
+}
+relationship OneToMany{
+	Animal to Nutrition
+}
+relationship ManyToOne {
+	Ferme{user} to User
+}
+relationship ManyToOne{
+Animal	to ConditionsDeVie
+}
+ 
+
+relationship ManyToMany {
+	Animal to Maladie
+}
+
+relationship OneToMany{
+	Ferme to Animal{ferme}
+}

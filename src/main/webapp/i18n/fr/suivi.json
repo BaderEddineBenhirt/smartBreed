@@ -1,0 +1,30 @@
+{
+  "intellcapApp": {
+    "suivi": {
+      "home": {
+        "title": "Suivis",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Suivi",
+        "createOrEditLabel": "Créer ou éditer un Suivi",
+        "notFound": "Aucun Suivi trouvé"
+      },
+      "created": "Un nouveau Suivi a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Suivi avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Suivi avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Suivi {{ id }} ?"
+      },
+      "detail": {
+        "title": "Suivi"
+      },
+      "id": "ID",
+      "poids0": "Poids 0",
+      "poids30": "Poids 30",
+      "poids90": "Poids 90",
+      "gmq30": "Gmq 30",
+      "gmq3070": "Gmq 3070",
+      "changeDents": "Change Dents",
+      "animal": "Animal"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "applications": "*",
+  "changelogDate": "20220929184520",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "suivi",
+  "fields": [
+    {
+      "fieldName": "poids0",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "poids30",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "poids90",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "gmq30",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "gmq3070",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "changeDents",
+      "fieldType": "Integer"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Suivi",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "animal",
+      "relationshipName": "animal",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

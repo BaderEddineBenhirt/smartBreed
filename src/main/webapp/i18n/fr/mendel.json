@@ -1,0 +1,17 @@
+{
+    "intellcapApp": {
+        "mendel": {
+            "home": {
+                "title": "Mendel",
+                "refreshListLabel": "Actualiser la liste",
+                "createLabel": "Créer un nouveau Maladie",
+                "createOrEditLabel": "Créer ou éditer un Maladie",
+                "notFound": "Aucun Melange trouvé"
+            }
+
+        },
+        "detail": {
+            "title": "Mendel"
+        }
+    }
+}

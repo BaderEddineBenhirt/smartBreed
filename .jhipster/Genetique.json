@@ -1,0 +1,44 @@
+{
+  "applications": "*",
+  "changelogDate": "20220929184522",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "genetique",
+  "fields": [
+    {
+      "fieldName": "couleur",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "taille",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "aptitudesLaitiere",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "aptitudesBoucheres",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "aptitudesMaternelles",
+      "fieldType": "Integer"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Genetique",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "animal",
+      "otherEntityRelationshipName": "genetique",
+      "ownerSide": false,
+      "relationshipName": "animal",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "no"
+}

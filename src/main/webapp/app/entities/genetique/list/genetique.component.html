@@ -1,0 +1,98 @@
+<div>
+    <h2 id="page-heading" data-cy="GenetiqueHeading">
+        <span jhiTranslate="intellcapApp.genetique.home.title">Genetiques</span>
+<hr>
+        <div class="d-flex justify-content-end">
+            
+
+            <button id="jh-create-entity" data-cy="entityCreateButton" class="btn btn-primary jh-create-entity create-genetique" [routerLink]="['/genetique/new']">
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="intellcapApp.genetique.home.createLabel"> Créer un nouveau Genetique </span>
+      </button>
+        </div>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="genetiques?.length === 0">
+        <span jhiTranslate="intellcapApp.genetique.home.notFound">Aucun Genetique trouvé</span>
+    </div>
+
+    <div class="table-responsive table-entities" id="entities" *ngIf="genetiques && genetiques.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+                    <th scope="col" jhiSortBy="id">
+                        <div class="d-flex">
+                            <span jhiTranslate="global.field.id">ID</span>
+                            <fa-icon class="p-1" icon="sort"></fa-icon>
+                        </div>
+                    </th>
+                    <th scope="col" jhiSortBy="couleur">
+                        <div class="d-flex">
+                            <span jhiTranslate="intellcapApp.genetique.couleur">Couleur</span>
+                            <fa-icon class="p-1" icon="sort"></fa-icon>
+                        </div>
+                    </th>
+                    <th scope="col" jhiSortBy="taille">
+                        <div class="d-flex">
+                            <span jhiTranslate="intellcapApp.genetique.taille">Taille</span>
+                            <fa-icon class="p-1" icon="sort"></fa-icon>
+                        </div>
+                    </th>
+                    <th scope="col" jhiSortBy="aptitudesLaitiere">
+                        <div class="d-flex">
+                            <span jhiTranslate="intellcapApp.genetique.aptitudesLaitiere">Aptitudes Laitiere</span>
+                            <fa-icon class="p-1" icon="sort"></fa-icon>
+                        </div>
+                    </th>
+                    <th scope="col" jhiSortBy="aptitudesBoucheres">
+                        <div class="d-flex">
+                            <span jhiTranslate="intellcapApp.genetique.aptitudesBoucheres">Aptitudes Boucheres</span>
+                            <fa-icon class="p-1" icon="sort"></fa-icon>
+                        </div>
+                    </th>
+                    <th scope="col" jhiSortBy="aptitudesMaternelles">
+                        <div class="d-flex">
+                            <span jhiTranslate="intellcapApp.genetique.aptitudesMaternelles">Aptitudes Maternelles</span>
+                            <fa-icon class="p-1" icon="sort"></fa-icon>
+                        </div>
+                    </th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let genetique of genetiques; trackBy: trackId" data-cy="entityTable">
+                    <td>
+                        <a [routerLink]="['/genetique', genetique.id, 'view']">{{ genetique.id }}</a>
+                    </td>
+                    <td>{{ genetique.couleur }}</td>
+                    <td>{{ genetique.taille }}</td>
+                    <td>{{ genetique.aptitudesLaitiere }}</td>
+                    <td>{{ genetique.aptitudesBoucheres }}</td>
+                    <td>{{ genetique.aptitudesMaternelles }}</td>
+                    <td class="text-end">
+                        <div class="btn-group">
+                            <button type="submit" [routerLink]="['/genetique', genetique.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
+              </button>
+
+                            <button type="submit" [routerLink]="['/genetique', genetique.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
+              </button>
+
+                            <button type="submit" (click)="delete(genetique)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
+              </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

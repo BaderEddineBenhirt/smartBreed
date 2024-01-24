@@ -1,0 +1,98 @@
+<div>
+    <h2 id="page-heading" data-cy="ConditionsDeVieHeading">
+        <span jhiTranslate="intellcapApp.conditionsDeVie.home.title">Conditions De Vies</span>
+<hr>
+        <div class="d-flex justify-content-end">
+          
+
+            <button id="jh-create-entity" data-cy="entityCreateButton" class="btn btn-primary jh-create-entity create-conditions-de-vie" [routerLink]="['/conditions-de-vie/new']">
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="intellcapApp.conditionsDeVie.home.createLabel"> Créer un nouveau Conditions De Vie </span>
+      </button>
+        </div>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="conditionsDeVies?.length === 0">
+        <span jhiTranslate="intellcapApp.conditionsDeVie.home.notFound">Aucun Conditions De Vie trouvé</span>
+    </div>
+
+    <div class="table-responsive table-entities" id="entities" *ngIf="conditionsDeVies && conditionsDeVies.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending">
+                    <th scope="col" jhiSortBy="id">
+                        <div class="d-flex">
+                            <span jhiTranslate="global.field.id">ID</span>
+                            <fa-icon class="p-1" icon="sort"></fa-icon>
+                        </div>
+                    </th>
+                    <th scope="col" jhiSortBy="ageMin">
+                        <div class="d-flex">
+                            <span jhiTranslate="intellcapApp.conditionsDeVie.ageMin">Age Min</span>
+                            <fa-icon class="p-1" icon="sort"></fa-icon>
+                        </div>
+                    </th>
+                    <th scope="col" jhiSortBy="ageMax">
+                        <div class="d-flex">
+                            <span jhiTranslate="intellcapApp.conditionsDeVie.ageMax">Age Max</span>
+                            <fa-icon class="p-1" icon="sort"></fa-icon>
+                        </div>
+                    </th>
+                    <th scope="col" jhiSortBy="temperature">
+                        <div class="d-flex">
+                            <span jhiTranslate="intellcapApp.conditionsDeVie.temperature">Temperature</span>
+                            <fa-icon class="p-1" icon="sort"></fa-icon>
+                        </div>
+                    </th>
+                    <th scope="col" jhiSortBy="vitesseAir">
+                        <div class="d-flex">
+                            <span jhiTranslate="intellcapApp.conditionsDeVie.vitesseAir">Vitesse Air</span>
+                            <fa-icon class="p-1" icon="sort"></fa-icon>
+                        </div>
+                    </th>
+                    <th scope="col" jhiSortBy="sol">
+                        <div class="d-flex">
+                            <span jhiTranslate="intellcapApp.conditionsDeVie.sol">Sol</span>
+                            <fa-icon class="p-1" icon="sort"></fa-icon>
+                        </div>
+                    </th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let conditionsDeVie of conditionsDeVies; trackBy: trackId" data-cy="entityTable">
+                    <td>
+                        <a [routerLink]="['/conditions-de-vie', conditionsDeVie.id, 'view']">{{ conditionsDeVie.id }}</a>
+                    </td>
+                    <td>{{ conditionsDeVie.ageMin }}</td>
+                    <td>{{ conditionsDeVie.ageMax }}</td>
+                    <td>{{ conditionsDeVie.temperature }}</td>
+                    <td>{{ conditionsDeVie.vitesseAir }}</td>
+                    <td>{{ conditionsDeVie.sol }}</td>
+                    <td class="text-end">
+                        <div class="btn-group">
+                            <button type="submit" [routerLink]="['/conditions-de-vie', conditionsDeVie.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
+              </button>
+
+                            <button type="submit" [routerLink]="['/conditions-de-vie', conditionsDeVie.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
+              </button>
+
+                            <button type="submit" (click)="delete(conditionsDeVie)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
+              </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

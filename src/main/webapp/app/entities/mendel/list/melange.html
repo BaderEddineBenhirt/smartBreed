@@ -1,0 +1,20 @@
+<div class="card text-center">
+
+    <div class="card-header" style="width: 100% ; height:100%;">
+        <h3> <strong>IntellCap</strong> </h3>
+    </div>
+    <div class="card-body">
+        <img src="../../../../content/images/le-mouton.png" width="40px">
+        <h5 class="card-title">Résultat de votre mélange</h5>
+        <p class="card-text"><strong>Prototype de votre melange :</strong> </p>
+        <p class="text-success">{{ data.proto }} </p>
+        <p class="card-text"><strong>Genotype de votre melange :</strong> </p>
+        <p class="text-info">{{ data.geno }}</p>
+        <p class="card-text"><strong>Probabilité de votre melange :</strong> </p>
+        <p class="text-primary">{{ data.prob }}</p>
+        <a (click)="closeDialog()" class="btn btn-primary">Close</a>
+    </div>
+    <div class="card-footer text-muted">
+        <strong>Have a good day !! ^^</strong>
+    </div>
+</div>

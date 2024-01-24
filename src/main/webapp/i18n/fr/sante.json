@@ -1,0 +1,27 @@
+{
+  "intellcapApp": {
+    "sante": {
+      "home": {
+        "title": "Santes",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Sante",
+        "createOrEditLabel": "Créer ou éditer un Sante",
+        "notFound": "Aucun Sante trouvé"
+      },
+      "created": "Un nouveau Sante a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Sante avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Sante avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Sante {{ id }} ?"
+      },
+      "detail": {
+        "title": "Sante"
+      },
+      "id": "ID",
+      "traitementsPreventifs": "Traitements Preventifs",
+      "soins": "Soins",
+      "vaccins": "Vaccins",
+      "maladie": "Maladie"
+    }
+  }
+}

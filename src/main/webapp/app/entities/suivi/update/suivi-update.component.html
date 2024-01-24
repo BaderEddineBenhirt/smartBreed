@@ -1,0 +1,86 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-suivi-heading" data-cy="SuiviCreateUpdateHeading" jhiTranslate="intellcapApp.suivi.home.createOrEditLabel">
+        Créer ou éditer un Suivi
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="intellcapApp.suivi.poids0" for="field_poids0">Poids 0</label>
+          <input type="number" class="form-control" name="poids0" id="field_poids0" data-cy="poids0" formControlName="poids0" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="intellcapApp.suivi.poids30" for="field_poids30">Poids 30</label>
+          <input type="number" class="form-control" name="poids30" id="field_poids30" data-cy="poids30" formControlName="poids30" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="intellcapApp.suivi.poids90" for="field_poids90">Poids 90</label>
+          <input type="number" class="form-control" name="poids90" id="field_poids90" data-cy="poids90" formControlName="poids90" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="intellcapApp.suivi.gmq30" for="field_gmq30">Gmq 30</label>
+          <input type="number" class="form-control" name="gmq30" id="field_gmq30" data-cy="gmq30" formControlName="gmq30" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="intellcapApp.suivi.gmq3070" for="field_gmq3070">Gmq 3070</label>
+          <input type="number" class="form-control" name="gmq3070" id="field_gmq3070" data-cy="gmq3070" formControlName="gmq3070" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="intellcapApp.suivi.changeDents" for="field_changeDents">Change Dents</label>
+          <input
+            type="number"
+            class="form-control"
+            name="changeDents"
+            id="field_changeDents"
+            data-cy="changeDents"
+            formControlName="changeDents"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="intellcapApp.suivi.animal" for="field_animal">Animal</label>
+          <select
+            class="form-control"
+            id="field_animal"
+            data-cy="animal"
+            name="animal"
+            formControlName="animal"
+            [compareWith]="compareAnimal"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="animalOption" *ngFor="let animalOption of animalsSharedCollection">{{ animalOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Annuler</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Sauvegarder</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

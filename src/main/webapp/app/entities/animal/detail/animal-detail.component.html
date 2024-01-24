@@ -1,0 +1,113 @@
+<div class="d-flex justify-content-center">
+    <div class="col-8">
+        <div *ngIf="animal">
+
+            <h2 data-cy="animalDetailsHeading"><span jhiTranslate="intellcapApp.animal.detail.title">Animal</span></h2>
+
+            <hr />
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <jhi-alert></jhi-alert>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="global.field.id">ID</span></dt>
+                <dd>
+                    <span>{{ animal.id }}</span>
+                </dd>
+                <dt><span jhiTranslate="intellcapApp.animal.ref">Ref</span></dt>
+                <dd>
+                    <span>{{ animal.ref }}</span>
+                </dd>
+                <dt><span jhiTranslate="intellcapApp.animal.age">Age</span></dt>
+                <dd>
+                    <span>{{ animal.age | formatMediumDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="intellcapApp.animal.genre">Genre</span></dt>
+                <dd>
+                    <span>{{ animal.genre }}</span>
+                </dd>
+                <dt><span jhiTranslate="intellcapApp.animal.poids">Poids</span></dt>
+                <dd>
+                    <span>{{ animal.poids }}</span>
+                </dd>
+                <dt><span jhiTranslate="intellcapApp.animal.refMere">Ref Mere</span></dt>
+                <dd>
+                    <span>{{ animal.refMere }}</span>
+                </dd>
+                <dt><span jhiTranslate="intellcapApp.animal.refPere">Ref Pere</span></dt>
+                <dd>
+                    <span>{{ animal.refPere }}</span>
+                </dd>
+                <dt><span jhiTranslate="intellcapApp.animal.type">Type</span></dt>
+                <dd>
+                    <span>{{ animal.type }}</span>
+                </dd>
+                <dt><span jhiTranslate="intellcapApp.animal.race">Race</span></dt>
+                <dd>
+                    <span>{{ animal.race }}</span>
+                </dd>
+                <dt><span jhiTranslate="intellcapApp.animal.genetique">Genetique</span></dt>
+                <dd>
+                    <div *ngIf="animal.genetique">
+                        <a [routerLink]="['/genetique', animal.genetique.id, 'view']">{{ animal.genetique.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="intellcapApp.animal.conditionsDeVie">Conditions De Vie</span></dt>
+                <dd>
+                    <div *ngIf="animal.conditionsDeVie">
+                        <a [routerLink]="['/conditions-de-vie', animal.conditionsDeVie.id, 'view']">{{ animal.conditionsDeVie.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="intellcapApp.animal.maladie">Maladie</span></dt>
+                <dd id="linkedin">
+                    <span *ngFor="let maladie of animal.maladies; let last = last">
+            <a [routerLink]="['/maladie', maladie.id, 'view']"  >{{ maladie.id }}</a
+            >{{ last ? '' : ', ' }}
+            <input id="message" type="text" name="message" value="{{ maladie.id }}" readonly  hidden/>
+          </span>
+                </dd>
+                <dt><span jhiTranslate="intellcapApp.animal.ferme">Ferme</span></dt>
+                <dd>
+                    <div *ngIf="animal.ferme">
+                        <a [routerLink]="['/ferme', animal.ferme.id, 'view']">{{ animal.ferme.id }}</a>
+
+                    </div>
+                </dd>
+            </dl>
+            <button (click)="openDialog1()" class="btn btn-primary">
+                <fa-icon [icon]="faTree"></fa-icon>&nbsp;<span  >arbres</span>
+              </button>
+            <br>
+            <br>
+            <jhi-maladie [idm]="idtablename"></jhi-maladie>
+            <div class="d-flex justify-content-end">
+                <h4>Creer un animal a linterieur de cet ferme</h4>
+                <button class="btn btn-primary" mat-raised-button (click)="openDialog()">
+                    <fa-icon icon="plus"></fa-icon>
+                    Ajouter
+                </button>
+            </div>
+            <br>
+            <br>
+            <jhi-conditions-de-vie [idC]="animal.conditionsDeVie?.id"></jhi-conditions-de-vie>
+            <br>
+            <br>
+            <jhi-genetique [idg]="animal.genetique?.id"></jhi-genetique>
+            <br>
+            <br>
+            <jhi-nutrition [idn]="animal.id"></jhi-nutrition>
+            <br>
+            <br>
+            <jhi-suivi [ids]="animal.id"></jhi-suivi>
+            <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+            <button type="button" [routerLink]="['/animal', animal.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+
+        </div>
+    </div>
+</div>

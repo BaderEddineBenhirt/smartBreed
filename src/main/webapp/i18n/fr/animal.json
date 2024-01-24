@@ -1,0 +1,36 @@
+{
+  "intellcapApp": {
+    "animal": {
+      "home": {
+        "title": "Animals",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Animal",
+        "createOrEditLabel": "Créer ou éditer un Animal",
+        "notFound": "Aucun Animal trouvé"
+      },
+      "created": "Un nouveau Animal a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Animal avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Animal avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Animal {{ id }} ?"
+      },
+      "detail": {
+        "title": "Animal"
+      },
+      "id": "ID",
+      "ref": "Ref",
+      "age": "Age",
+      "genre": "Genre",
+      "poids": "Poids",
+      "refMere": "Ref Mere",
+      "refPere": "Ref Pere",
+      "type": "Type",
+      "race": "Race",
+      "genetique": "Genetique",
+      "nutrition": "Nutrition",
+      "conditionsDeVie": "Conditions De Vie",
+      "maladie": "Maladie",
+      "ferme": "Ferme"
+    }
+  }
+}

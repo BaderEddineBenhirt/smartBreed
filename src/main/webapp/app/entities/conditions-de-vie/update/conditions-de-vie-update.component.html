@@ -1,0 +1,77 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-conditions-de-vie-heading"
+        data-cy="ConditionsDeVieCreateUpdateHeading"
+        jhiTranslate="intellcapApp.conditionsDeVie.home.createOrEditLabel"
+      >
+        Créer ou éditer un Conditions De Vie
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="intellcapApp.conditionsDeVie.ageMin" for="field_ageMin">Age Min</label>
+          <input type="number" class="form-control" name="ageMin" id="field_ageMin" data-cy="ageMin" formControlName="ageMin" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="intellcapApp.conditionsDeVie.ageMax" for="field_ageMax">Age Max</label>
+          <input type="number" class="form-control" name="ageMax" id="field_ageMax" data-cy="ageMax" formControlName="ageMax" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="intellcapApp.conditionsDeVie.temperature" for="field_temperature">Temperature</label>
+          <input
+            type="number"
+            class="form-control"
+            name="temperature"
+            id="field_temperature"
+            data-cy="temperature"
+            formControlName="temperature"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="intellcapApp.conditionsDeVie.vitesseAir" for="field_vitesseAir">Vitesse Air</label>
+          <input
+            type="number"
+            class="form-control"
+            name="vitesseAir"
+            id="field_vitesseAir"
+            data-cy="vitesseAir"
+            formControlName="vitesseAir"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="intellcapApp.conditionsDeVie.sol" for="field_sol">Sol</label>
+          <input type="number" class="form-control" name="sol" id="field_sol" data-cy="sol" formControlName="sol" />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Annuler</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Sauvegarder</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

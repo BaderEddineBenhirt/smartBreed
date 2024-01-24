@@ -1,0 +1,102 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-nutrition-heading" data-cy="NutritionCreateUpdateHeading" jhiTranslate="intellcapApp.nutrition.home.createOrEditLabel">
+        Créer ou éditer un Nutrition
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="intellcapApp.nutrition.melasse" for="field_melasse">Melasse</label>
+          <input type="number" class="form-control" name="melasse" id="field_melasse" data-cy="melasse" formControlName="melasse" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="intellcapApp.nutrition.paile" for="field_paile">Paile</label>
+          <input type="number" class="form-control" name="paile" id="field_paile" data-cy="paile" formControlName="paile" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="intellcapApp.nutrition.tourteauTournesol" for="field_tourteauTournesol"
+            >Tourteau Tournesol</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="tourteauTournesol"
+            id="field_tourteauTournesol"
+            data-cy="tourteauTournesol"
+            formControlName="tourteauTournesol"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="intellcapApp.nutrition.bettraveSucriere" for="field_bettraveSucriere"
+            >Bettrave Sucriere</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="bettraveSucriere"
+            id="field_bettraveSucriere"
+            data-cy="bettraveSucriere"
+            formControlName="bettraveSucriere"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="intellcapApp.nutrition.cmv" for="field_cmv">Cmv</label>
+          <input type="number" class="form-control" name="cmv" id="field_cmv" data-cy="cmv" formControlName="cmv" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="intellcapApp.nutrition.ageMin" for="field_ageMin">Age Min</label>
+          <input type="number" class="form-control" name="ageMin" id="field_ageMin" data-cy="ageMin" formControlName="ageMin" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="intellcapApp.nutrition.ageMax" for="field_ageMax">Age Max</label>
+          <input type="number" class="form-control" name="ageMax" id="field_ageMax" data-cy="ageMax" formControlName="ageMax" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="intellcapApp.nutrition.animal" for="field_animal">Animal</label>
+          <select
+            class="form-control"
+            id="field_animal"
+            data-cy="animal"
+            name="animal"
+            formControlName="animal"
+            [compareWith]="compareAnimal"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="animalOption" *ngFor="let animalOption of animalsSharedCollection">{{ animalOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Annuler</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Sauvegarder</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

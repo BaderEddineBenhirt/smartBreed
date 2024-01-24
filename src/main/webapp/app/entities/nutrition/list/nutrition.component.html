@@ -1,0 +1,123 @@
+<div>
+    <h2 id="page-heading" data-cy="NutritionHeading">
+        <span jhiTranslate="intellcapApp.nutrition.home.title">Nutritions</span>
+<hr>
+        <div class="d-flex justify-content-end">
+           
+
+            <button id="jh-create-entity" data-cy="entityCreateButton" class="btn btn-primary jh-create-entity create-nutrition" [routerLink]="['/nutrition/new']">
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="intellcapApp.nutrition.home.createLabel"> Créer un nouveau Nutrition </span>
+      </button>
+        </div>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="nutritions?.length === 0">
+        <span jhiTranslate="intellcapApp.nutrition.home.notFound">Aucun Nutrition trouvé</span>
+    </div>
+
+    <div class="table-responsive table-entities" id="entities" *ngIf="nutritions && nutritions.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+                    <th scope="col" jhiSortBy="id">
+                        <div class="d-flex">
+                            <span jhiTranslate="global.field.id">ID</span>
+                            <fa-icon class="p-1" icon="sort"></fa-icon>
+                        </div>
+                    </th>
+                    <th scope="col" jhiSortBy="melasse">
+                        <div class="d-flex">
+                            <span jhiTranslate="intellcapApp.nutrition.melasse">Melasse</span>
+                            <fa-icon class="p-1" icon="sort"></fa-icon>
+                        </div>
+                    </th>
+                    <th scope="col" jhiSortBy="paile">
+                        <div class="d-flex">
+                            <span jhiTranslate="intellcapApp.nutrition.paile">Paile</span>
+                            <fa-icon class="p-1" icon="sort"></fa-icon>
+                        </div>
+                    </th>
+                    <th scope="col" jhiSortBy="tourteauTournesol">
+                        <div class="d-flex">
+                            <span jhiTranslate="intellcapApp.nutrition.tourteauTournesol">Tourteau Tournesol</span>
+                            <fa-icon class="p-1" icon="sort"></fa-icon>
+                        </div>
+                    </th>
+                    <th scope="col" jhiSortBy="bettraveSucriere">
+                        <div class="d-flex">
+                            <span jhiTranslate="intellcapApp.nutrition.bettraveSucriere">Bettrave Sucriere</span>
+                            <fa-icon class="p-1" icon="sort"></fa-icon>
+                        </div>
+                    </th>
+                    <th scope="col" jhiSortBy="cmv">
+                        <div class="d-flex">
+                            <span jhiTranslate="intellcapApp.nutrition.cmv">Cmv</span>
+                            <fa-icon class="p-1" icon="sort"></fa-icon>
+                        </div>
+                    </th>
+                    <th scope="col" jhiSortBy="ageMin">
+                        <div class="d-flex">
+                            <span jhiTranslate="intellcapApp.nutrition.ageMin">Age Min</span>
+                            <fa-icon class="p-1" icon="sort"></fa-icon>
+                        </div>
+                    </th>
+                    <th scope="col" jhiSortBy="ageMax">
+                        <div class="d-flex">
+                            <span jhiTranslate="intellcapApp.nutrition.ageMax">Age Max</span>
+                            <fa-icon class="p-1" icon="sort"></fa-icon>
+                        </div>
+                    </th>
+                    <th scope="col" jhiSortBy="animal.id">
+                        <div class="d-flex">
+                            <span jhiTranslate="intellcapApp.nutrition.animal">Animal</span>
+                            <fa-icon class="p-1" icon="sort"></fa-icon>
+                        </div>
+                    </th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let nutrition of nutritions; trackBy: trackId" data-cy="entityTable">
+                    <td>
+                        <a [routerLink]="['/nutrition', nutrition.id, 'view']">{{ nutrition.id }}</a>
+                    </td>
+                    <td>{{ nutrition.melasse }}</td>
+                    <td>{{ nutrition.paile }}</td>
+                    <td>{{ nutrition.tourteauTournesol }}</td>
+                    <td>{{ nutrition.bettraveSucriere }}</td>
+                    <td>{{ nutrition.cmv }}</td>
+                    <td>{{ nutrition.ageMin }}</td>
+                    <td>{{ nutrition.ageMax }}</td>
+                    <td>
+                        <div *ngIf="nutrition.animal">
+                            <a [routerLink]="['/animal', nutrition.animal.id, 'view']">{{ nutrition.animal.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-end">
+                        <div class="btn-group">
+                            <button type="submit" [routerLink]="['/nutrition', nutrition.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
+              </button>
+
+                            <button type="submit" [routerLink]="['/nutrition', nutrition.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
+              </button>
+
+                            <button type="submit" (click)="delete(nutrition)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
+              </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
